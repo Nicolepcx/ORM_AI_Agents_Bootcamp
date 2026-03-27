@@ -1,0 +1,23 @@
+# Profile: discovery-oriented Exa + SerpApi tool listing (merged on top of defaults.yaml).
+# Optional env override example — resolved by OmegaConf:
+#   export DISCOVERY_MAX_RUNTIME=90
+name: Discovery Only
+max_total_calls_per_task: 6
+max_runtime_seconds: ${oc.env:DISCOVERY_MAX_RUNTIME,120}
+tool_policies:
+  - pattern: EXA_WEB_SEARCH
+    access_level: allowed
+    max_calls_per_task: 3
+    description: Exa web search
+  - pattern: EXA_CODE_SEARCH
+    access_level: forbidden
+    max_calls_per_task: 0
+    description: Exa code search blocked
+  - pattern: SERPAPI_LIST_TOOLS
+    access_level: allowed
+    max_calls_per_task: 2
+    description: SerpApi MCP tool listing
+  - pattern: ".*"
+    access_level: forbidden
+    max_calls_per_task: 0
+    description: Block all others

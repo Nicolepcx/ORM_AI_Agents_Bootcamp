@@ -1,0 +1,12 @@
+# PRP-style "skill": human-readable intent + machine-enforced allowlists.
+# This skill narrows what the base policy permits (it cannot grant tools the policy forbids).
+name: research_strict
+objective: >-
+  Use Exa web search for general research only; avoid StackOverflow-targeted queries
+  in tool arguments (compliance-style content boundary for this demo).
+constraints: |
+  Prefer neutral phrasing in EXA_WEB_SEARCH query strings.
+  Do not include the substring "stackoverflow" or "stack overflow" in arguments.
+forbidden_argument_substrings:
+  - stackoverflow
+  - stack overflow

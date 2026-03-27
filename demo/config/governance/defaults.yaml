@@ -1,0 +1,15 @@
+# Shared governance defaults (merged under profile-specific YAML).
+max_parallel_calls: 3
+max_total_calls_per_task: 20
+max_runtime_seconds: 300
+mcp_call_timeout_seconds: 20
+allow_connection_creation: false
+connection_and_execution_in_same_run: false
+allowed_artifact_types:
+  - policy_decision
+  - tool_call_log
+  - approval_log
+  - approval_request
+  - budget_stats
+  - result_summary
+  - skill_denial
